@@ -1,81 +1,118 @@
 /* -------------------------------DATAVIEW------------------------------- */
 /* dataview inline field */
 .dataview.inline-field {
-    border-width: 1px;
-    border-style: solid;
-    border-image:
-        linear-gradient(170deg,
-            var(--custom-acc-faint),
-            transparent,
-            var(--custom-acc-faint)) 1;
+    --dataview-key-color: var(--text-accent);
+    --dataview-key-priority: hsl(224, 100%, 79%);
+    --dataview-key-cancelled: hsl(0, 100%, 60%);
+    --dataview-key-completion: hsl(118, 100%, 73%);
+    --dataview-key-due: hsl(0, 100%, 75%);
+    --dataview-key-created: hsl(71, 100%, 86%);
+    --dataview-key-updated: hsl(73, 83%, 67%);
+    --dataview-key-file: hsl(41, 100%, 70%);
+    --dataview-key-scheduled: hsl(0, 100%, 75%);
     margin: 0 2px;
+    --dataview-border-radius: 6px;
+    border-radius: var(--dataview-border-radius);
 }
 
 /* dataview inline field key */
 .dataview.inline-field-key {
-    --dataview-key: var(--text-accent);
     /* capitalize first letter */
     text-transform: capitalize;
     text-shadow:
-        1px 1px black,
-        0 0 9px var(--dataview-key),
-        0 0 12px var(--dataview-key);
-    color: var(--dataview-key);
+        1px 1px black;
+    color: var(--dataview-key-color);
+    background: hsl(from var(--dataview-key-color) h 20% 25%);
+    padding: 0 3px 0 6px;
+    border-top-left-radius: var(--dataview-border-radius);
+    border-bottom-left-radius: var(--dataview-border-radius);
+}
+
+.dataview.inline-field-key::before {
+    font-size: .8em;
+    padding-right: 2px;
+    text-shadow: none;
+    vertical-align: 5%;
 }
 
 /* priority */
-.dataview.inline-field-key[data-dv-key='priority'] {
-    --dataview-key-priority: hsl(224, 100%, 79%);
-    --dataview-key: var(--dataview-key-priority);
+.dataview.inline-field:has(.dataview.inline-field-key[data-dv-key='priority'])>span {
+    --dataview-key-color: var(--dataview-key-priority);
+}
+
+.dataview.inline-field-key[data-dv-key='priority']::before {
+    content: "🔥";
 }
 
 /* completion */
-.dataview.inline-field-key[data-dv-key='completion'] {
-    --dataview-key-completion: hsl(118, 100%, 73%);
-    --dataview-key: var(--dataview-key-completion);
+.dataview.inline-field:has(.dataview.inline-field-key[data-dv-key='completion'])>span {
+    --dataview-key-color: var(--dataview-key-completion);
+}
+
+.dataview.inline-field-key[data-dv-key='completion']::before {
+    content: "✅";
 }
 
 /* due */
-.dataview.inline-field-key[data-dv-key='due'] {
-    --dataview-key-due: hsl(0, 100%, 75%);
-    --dataview-key: var(--dataview-key-due);
+.dataview.inline-field:has(.dataview.inline-field-key[data-dv-key='due'])>span {
+    --dataview-key-color: var(--dataview-key-due);
+}
+
+.dataview.inline-field-key[data-dv-key='due']::before {
+    content: "🕒";
 }
 
 /* cancelled */
-.dataview.inline-field-key[data-dv-key='cancelled'] {
-    --dataview-key-cancelled: hsl(0, 100%, 60%);
-    --dataview-key: var(--dataview-key-cancelled);
+.dataview.inline-field:has(.dataview.inline-field-key[data-dv-key='cancelled'])>span {
+    --dataview-key-color: var(--dataview-key-cancelled);
+}
+
+.dataview.inline-field-key[data-dv-key='cancelled']::before {
+    content: "❌";
 }
 
 /* created */
-.dataview.inline-field-key[data-dv-key='created'] {
-    --dataview-key-created: hsl(71, 100%, 86%);
-    --dataview-key: var(--dataview-key-created);
+.dataview.inline-field:has(.dataview.inline-field-key[data-dv-key='created'])>span {
+    --dataview-key-color: var(--dataview-key-created);
+}
+
+.dataview.inline-field-key[data-dv-key='created']::before {
+    content: "🧷";
 }
 
 /* updated */
-.dataview.inline-field-key[data-dv-key='updated'] {
-    --dataview-key-updated: hsl(73, 83%, 67%);
-    --dataview-key: var(--dataview-key-updated);
+.dataview.inline-field:has(.dataview.inline-field-key[data-dv-key='updated'])>span {
+    --dataview-key-color: var(--dataview-key-updated);
+}
+
+.dataview.inline-field-key[data-dv-key='updated']::before {
+    content: "🔄";
 }
 
 /* file */
-.dataview.inline-field-key[data-dv-key='file'],
-.dataview.inline-field-key[data-dv-key='file-link'] {
-    --dataview-key-file: hsl(41, 100%, 70%);
-    --dataview-key: var(--dataview-key-file);
+.dataview.inline-field-key[data-dv-key~='file'] {
+    --dataview-key-color: var(--dataview-key-file);
+}
+
+.dataview.inline-field-key[data-dv-key~='file']::before {
+    content: "📄";
 }
 
 /* schedued */
-.dataview.inline-field-key[data-dv-key='scheduled'] {
-    --dataview-key-scheduled: hsl(0, 100%, 75%);
-    --dataview-key: var(--dataview-key-scheduled);
+.dataview.inline-field:has(.dataview.inline-field-key[data-dv-key='scheduled'])>span {
+    --dataview-key-color: var(--dataview-key-scheduled);
+}
+
+.dataview.inline-field-key[data-dv-key='scheduled']::before {
+    content: "📅";
 }
 
 /* dataview inline field value */
 .dataview.inline-field-value {
-    color: var(--text-normal);
-    /* text-shadow: 1px 1px 0px black; */
+    color: hsl(from var(--dataview-key-color) h 50% 93%);
+    background: hsl(from var(--dataview-key-color) h 5% 20%);
+    border-top-right-radius: var(--dataview-border-radius);
+    border-bottom-right-radius: var(--dataview-border-radius);
 }
 
 /* ===============================DATAVIEW=============================== */
