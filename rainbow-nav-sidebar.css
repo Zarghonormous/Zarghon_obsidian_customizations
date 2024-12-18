@@ -23,7 +23,7 @@ body {
     white-space: nowrap;
 }
 
-/* make folder titles bold */
+/* folder titles*/
 .nav-folder-title-content {
     font-weight: bold;
     text-shadow:
