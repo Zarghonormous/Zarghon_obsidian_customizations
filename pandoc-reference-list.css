@@ -1,0 +1,16 @@
+/* Resolved pandoc inline citations */
+.pandoc-citation.is-resolved {
+    text-shadow:
+        0 0 1px var(--link-external-color),
+        0 0 2px var(--link-external-color),
+        0 0 3px var(--link-external-color);
+}
+
+/* Pandoc reference list title */
+.pwc-reference-list__title,
+/* Pandoc reference list order number */
+.csl-left-margin {
+    text-shadow:
+        0 0 2px var(--color-accent),
+        0 0 5px var(--color-accent);
+}

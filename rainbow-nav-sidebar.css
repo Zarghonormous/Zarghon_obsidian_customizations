@@ -1,0 +1,210 @@
+body {
+    --nav-item-border-radius: 5px;
+    --nav-item-bg-hue-start: 30;
+    --nav-item-bg-hue-inc: 40;
+    --nav-item-bg-saturation: 50%;
+    --nav-item-bg-lightness: 30%;
+    --nav-item-bg-opacity: .4;
+    --nav-item-font-saturation: 50%;
+    --nav-item-font-lightness: 55%;
+    --nav-item-font-hover-saturation:
+        min(calc(var(--nav-item-font-saturation) + 50%), 100%);
+    --nav-item-font-hover-lightness:
+        min(calc(var(--nav-item-font-lightness) + 15%), 80%);
+    --nav-child-bg-h-inc: 15;
+}
+
+/* limit file and folder title length to 1 line */
+.nav-file-title-content,
+.nav-folder-title-content {
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* make folder titles bold */
+.nav-folder-title-content {
+    font-weight: bold;
+    text-shadow:
+        1px 1px hsla(0, 0%, 0%, 0.3);
+}
+
+/* ------------rainbow nav item colors at top level------------ */
+
+/* if using custom icons */
+.collapse-icon svg.svg-icon {
+    display: none;
+}
+
+/* default font color */
+.nav-folder .is-clickable,
+.nav-folder-title-content,
+.nav-file-title-content,
+/* default collapse icon color */
+.collapse-icon svg.svg-icon {
+    --nav-item-font-s: var(--nav-item-font-saturation);
+    --nav-item-font-l: var(--nav-item-font-lightness);
+    color: hsl(var(--nav-item-bg-h),
+            var(--nav-item-font-s),
+            var(--nav-item-font-l)) !important;
+}
+
+/* font color on hover */
+.tree-item>.is-clickable:hover>.tree-item-inner,
+/* active nav item font */
+.tree-item>.is-active>.tree-item-inner,
+/* collapse icon color on hover */
+.tree-item>.is-clickable:hover .collapse-icon svg.svg-icon {
+    --nav-item-font-s: var(--nav-item-font-hover-saturation);
+    --nav-item-font-l: var(--nav-item-font-hover-lightness);
+}
+
+/* nav item icon color */
+.nav-folder-title-content::before,
+.nav-file-title-content::before {
+    background-color: hsl(var(--nav-item-bg-h),
+            var(--nav-item-font-s),
+            var(--nav-item-font-l)) !important;
+}
+
+.nav-folder-title:hover .nav-folder-title-content::before,
+.nav-file-title:hover .nav-file-title-content::before,
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title.is-active .nav-file-title-content::before {
+    --nav-item-font-s: var(--nav-item-font-hover-saturation);
+    --nav-item-font-l: var(--nav-item-font-hover-lightness);
+}
+
+/* file tag color */
+.nav-file-tag {
+    color: hsl(var(--nav-item-bg-h), 100%, 70%);
+    background-color: hsl(var(--nav-item-bg-h), 70%, 40%);
+}
+
+/* top level folder bg color */
+.nav-files-container>div>.nav-folder>.tree-item-self,
+.nav-files-container>div>.nav-folder>.tree-item-self:hover {
+    --nav-item-bg-s: var(--nav-item-bg-saturation);
+    --nav-item-bg-l: var(--nav-item-bg-lightness);
+    --nav-item-color-hsl:
+        var(--nav-item-bg-h),
+        var(--nav-item-bg-s),
+        var(--nav-item-bg-l);
+    background: hsla(var(--nav-item-color-hsl),
+            var(--nav-item-bg-opacity));
+    box-shadow: inset 0 0 10px hsl(var(--nav-item-color-hsl));
+    border-radius: var(--nav-item-border-radius);
+}
+
+/* .nav-files-container>div>.nav-folder>.tree-item-self::before {
+    mask-image: url();
+} */
+
+/* 9-segment rainbow */
+.nav-files-container>div>:nth-child(9n+2) {
+    --nav-item-bg-h: var(--nav-item-bg-hue-start);
+}
+
+.nav-files-container>div>:nth-child(9n+3) {
+    --nav-item-bg-h: calc(var(--nav-item-bg-hue-start) + var(--nav-item-bg-hue-inc));
+}
+
+.nav-files-container>div>:nth-child(9n+4) {
+    --nav-item-bg-h: calc(var(--nav-item-bg-hue-start) + 2 * var(--nav-item-bg-hue-inc));
+}
+
+.nav-files-container>div>:nth-child(9n+5) {
+    --nav-item-bg-h: calc(var(--nav-item-bg-hue-start) + 3 * var(--nav-item-bg-hue-inc));
+}
+
+.nav-files-container>div>:nth-child(9n+6) {
+    --nav-item-bg-h: calc(var(--nav-item-bg-hue-start) + 4 * var(--nav-item-bg-hue-inc));
+}
+
+.nav-files-container>div>:nth-child(9n+7) {
+    --nav-item-bg-h: calc(var(--nav-item-bg-hue-start) + 5 * var(--nav-item-bg-hue-inc));
+}
+
+.nav-files-container>div>:nth-child(9n+8) {
+    --nav-item-bg-h: calc(var(--nav-item-bg-hue-start) + 6 * var(--nav-item-bg-hue-inc));
+}
+
+.nav-files-container>div>:nth-child(9n+9) {
+    --nav-item-bg-h: calc(var(--nav-item-bg-hue-start) + 7 * var(--nav-item-bg-hue-inc));
+}
+
+.nav-files-container>div>:nth-child(9n+1) {
+    --nav-item-bg-h: calc(var(--nav-item-bg-hue-start) + 8 * var(--nav-item-bg-hue-inc));
+}
+
+/* on hover, make folder bg brighter */
+.nav-files-container>div>.nav-folder .is-clickable:hover {
+    --nav-item-bg-s: calc(var(--nav-item-bg-saturation) * 1.1);
+    --nav-item-bg-l: calc(var(--nav-item-bg-lightness) * 1.05);
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-image-source:
+        linear-gradient(to right,
+            transparent,
+            hsla(var(--nav-item-bg-h),
+                100%,
+                70%,
+                0.8),
+            transparent);
+}
+
+/* sub-tree */
+.tree-item-children {
+    --nav-child-bg-h: calc(var(--nav-item-bg-h) + var(--nav-child-bg-h-inc));
+    --nav-indentation-guide-width: 2px;
+    --nav-indentation-guide-color:
+        hsl(var(--nav-item-bg-h), var(--nav-item-bg-saturation), 40%);
+    border-inline-start: var(--nav-indentation-guide-width) solid var(--nav-indentation-guide-color);
+}
+
+/* sub-items */
+.tree-item-children>.tree-item,
+.tree-item-children .is-clickable:hover {
+    --nav-item-bg-s: calc(var(--nav-item-bg-saturation) * 0.3);
+    --nav-item-bg-l: calc(var(--nav-item-bg-lightness) * 0.5);
+    --nav-item-bg-opacity: .5;
+    background: hsla(var(--nav-child-bg-h),
+            var(--nav-item-bg-s),
+            var(--nav-item-bg-l),
+            var(--nav-item-bg-opacity)) !important;
+    border-radius: var(--nav-item-border-radius);
+}
+
+.tree-item-children .is-clickable:hover {
+    --nav-item-bg-opacity: 0.5;
+}
+
+.tree-item-children>div:nth-child(2n+2).tree-item {
+    --nav-item-bg-l: calc(var(--nav-item-bg-lightness) * 0.8);
+}
+
+
+/* active nav item */
+body:not(.is-grabbing) .nav-file-title.is-active:hover,
+body:not(.is-grabbing) .nav-folder-title.is-active:hover,
+.nav-file-title.is-active,
+.nav-folder-title.is-active,
+body:not(.is-grabbing) .tree-item-self.is-active:hover,
+.tree-item-self.is-active {
+    --nav-item-background-active:
+        hsla(var(--nav-item-bg-h),
+            min(calc(var(--nav-item-bg-saturation) + 25%), 100%),
+            min(calc(var(--nav-item-bg-lightness) + 15%), 80%),
+            0.5);
+    background-color: var(--nav-item-background-active) !important;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-image-source:
+        linear-gradient(to right,
+            transparent,
+            hsla(var(--nav-item-bg-h),
+                100%,
+                80%,
+                0.8),
+            transparent);
+}

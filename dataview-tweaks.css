@@ -1,0 +1,81 @@
+/* -------------------------------DATAVIEW------------------------------- */
+/* dataview inline field */
+.dataview.inline-field {
+    border-width: 1px;
+    border-style: solid;
+    border-image:
+        linear-gradient(170deg,
+            var(--custom-acc-faint),
+            transparent,
+            var(--custom-acc-faint)) 1;
+    margin: 0 2px;
+}
+
+/* dataview inline field key */
+.dataview.inline-field-key {
+    --dataview-key: var(--text-accent);
+    /* capitalize first letter */
+    text-transform: capitalize;
+    text-shadow:
+        1px 1px black,
+        0 0 9px var(--dataview-key),
+        0 0 12px var(--dataview-key);
+    color: var(--dataview-key);
+}
+
+/* priority */
+.dataview.inline-field-key[data-dv-key='priority'] {
+    --dataview-key-priority: hsl(224, 100%, 79%);
+    --dataview-key: var(--dataview-key-priority);
+}
+
+/* completion */
+.dataview.inline-field-key[data-dv-key='completion'] {
+    --dataview-key-completion: hsl(118, 100%, 73%);
+    --dataview-key: var(--dataview-key-completion);
+}
+
+/* due */
+.dataview.inline-field-key[data-dv-key='due'] {
+    --dataview-key-due: hsl(0, 100%, 75%);
+    --dataview-key: var(--dataview-key-due);
+}
+
+/* cancelled */
+.dataview.inline-field-key[data-dv-key='cancelled'] {
+    --dataview-key-cancelled: hsl(0, 100%, 60%);
+    --dataview-key: var(--dataview-key-cancelled);
+}
+
+/* created */
+.dataview.inline-field-key[data-dv-key='created'] {
+    --dataview-key-created: hsl(71, 100%, 86%);
+    --dataview-key: var(--dataview-key-created);
+}
+
+/* updated */
+.dataview.inline-field-key[data-dv-key='updated'] {
+    --dataview-key-updated: hsl(73, 83%, 67%);
+    --dataview-key: var(--dataview-key-updated);
+}
+
+/* file */
+.dataview.inline-field-key[data-dv-key='file'],
+.dataview.inline-field-key[data-dv-key='file-link'] {
+    --dataview-key-file: hsl(41, 100%, 70%);
+    --dataview-key: var(--dataview-key-file);
+}
+
+/* schedued */
+.dataview.inline-field-key[data-dv-key='scheduled'] {
+    --dataview-key-scheduled: hsl(0, 100%, 75%);
+    --dataview-key: var(--dataview-key-scheduled);
+}
+
+/* dataview inline field value */
+.dataview.inline-field-value {
+    color: var(--text-normal);
+    /* text-shadow: 1px 1px 0px black; */
+}
+
+/* ===============================DATAVIEW=============================== */
