@@ -2,14 +2,14 @@
 /* dataview inline field */
 .dataview.inline-field {
     --dataview-key-color: var(--text-accent);
-    --dataview-key-priority: hsl(224, 100%, 79%);
-    --dataview-key-cancelled: hsl(0, 100%, 60%);
+    --dataview-key-priority: hsl(27, 84%, 54%);
+    --dataview-key-cancelled: hsl(0, 80%, 60%);
     --dataview-key-completion: hsl(118, 100%, 73%);
     --dataview-key-due: hsl(0, 100%, 75%);
-    --dataview-key-created: hsl(71, 100%, 86%);
-    --dataview-key-updated: hsl(73, 83%, 67%);
-    --dataview-key-file: hsl(41, 100%, 70%);
-    --dataview-key-scheduled: hsl(0, 100%, 75%);
+    --dataview-key-created: hsl(170, 59%, 58%);
+    --dataview-key-updated: hsl(199, 83%, 67%);
+    --dataview-key-file: hsl(64, 100%, 82%);
+    --dataview-key-scheduled: hsl(199, 100%, 80%);
     margin: 0 2px;
     --dataview-border-radius: 6px;
     border-radius: var(--dataview-border-radius);
@@ -17,22 +17,32 @@
 
 /* dataview inline field key */
 .dataview.inline-field-key {
-    /* capitalize first letter */
     text-transform: capitalize;
     text-shadow:
         1px 1px black;
     color: var(--dataview-key-color);
     background: hsl(from var(--dataview-key-color) h 20% 25%);
-    padding: 0 3px 0 6px;
+    padding: 0 3px;
     border-top-left-radius: var(--dataview-border-radius);
     border-bottom-left-radius: var(--dataview-border-radius);
 }
 
+/* add svg icons before field key */
 .dataview.inline-field-key::before {
-    font-size: .8em;
-    padding-right: 2px;
     text-shadow: none;
-    vertical-align: 5%;
+    margin-right: 2px;
+    background-color: var(--dataview-key-color);
+    position: relative;
+    content: " ";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    vertical-align: -2.5px;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100%;
+    mask-size: 100%;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'%3E%3C/circle%3E%3Cpath d='M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z'%3E%3C/path%3E%3C/svg%3E")
 }
 
 /* priority */
@@ -41,7 +51,8 @@
 }
 
 .dataview.inline-field-key[data-dv-key='priority']::before {
-    content: "🔥";
+    /* content: "🔥"; */
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath d='M12.8324 21.8013C15.9583 21.1747 20 18.926 20 13.1112C20 7.8196 16.1267 4.29593 13.3415 2.67685C12.7235 2.31757 12 2.79006 12 3.50492V5.3334C12 6.77526 11.3938 9.40711 9.70932 10.5018C8.84932 11.0607 7.92052 10.2242 7.816 9.20388L7.73017 8.36604C7.6304 7.39203 6.63841 6.80075 5.85996 7.3946C4.46147 8.46144 3 10.3296 3 13.1112C3 20.2223 8.28889 22.0001 10.9333 22.0001C11.0871 22.0001 11.2488 21.9955 11.4171 21.9858C10.1113 21.8742 8 21.064 8 18.4442C8 16.3949 9.49507 15.0085 10.631 14.3346C10.9365 14.1533 11.2941 14.3887 11.2941 14.7439V15.3331C11.2941 15.784 11.4685 16.4889 11.8836 16.9714C12.3534 17.5174 13.0429 16.9454 13.0985 16.2273C13.1161 16.0008 13.3439 15.8564 13.5401 15.9711C14.1814 16.3459 15 17.1465 15 18.4442C15 20.4922 13.871 21.4343 12.8324 21.8013Z' fill='%231C274C'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
 }
 
 /* completion */
@@ -50,7 +61,7 @@
 }
 
 .dataview.inline-field-key[data-dv-key='completion']::before {
-    content: "✅";
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 11 12 14 22 4'%3E%3C/polyline%3E%3Cpath d='M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11'%3E%3C/path%3E%3C/svg%3E");
 }
 
 /* due */
@@ -59,7 +70,8 @@
 }
 
 .dataview.inline-field-key[data-dv-key='due']::before {
-    content: "🕒";
+    /* content: "🕒"; */
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath d='M11.9997 12.5815V9.58148M11.9997 15.5815H12.0097M18.9997 20.5815L16.4094 18.0182M4.9997 20.5815L7.59001 18.0182M6.74234 3.99735C6.36727 3.62228 5.85856 3.41156 5.32812 3.41156C4.79769 3.41156 4.28898 3.62228 3.91391 3.99735C3.53884 4.37242 3.32813 4.88113 3.32812 5.41156C3.32812 5.942 3.53884 6.4507 3.91391 6.82578M20.0858 6.82413C20.4609 6.44905 20.6716 5.94035 20.6716 5.40991C20.6716 4.87948 20.4609 4.37077 20.0858 3.9957C19.7107 3.62063 19.202 3.40991 18.6716 3.40991C18.1411 3.40991 17.6324 3.62063 17.2574 3.9957M18.9997 12.5815C18.9997 16.4475 15.8657 19.5815 11.9997 19.5815C8.1337 19.5815 4.9997 16.4475 4.9997 12.5815C4.9997 8.71549 8.1337 5.58149 11.9997 5.58149C15.8657 5.58149 18.9997 8.71549 18.9997 12.5815Z' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
 }
 
 /* cancelled */
@@ -68,7 +80,8 @@
 }
 
 .dataview.inline-field-key[data-dv-key='cancelled']::before {
-    content: "❌";
+    /* content: "❌"; */
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
 }
 
 /* created */
@@ -77,7 +90,8 @@
 }
 
 .dataview.inline-field-key[data-dv-key='created']::before {
-    content: "🧷";
+    /* content: "🧷"; */
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34'%3E%3C/path%3E%3Cpolygon points='18 2 22 6 12 16 8 16 8 12 18 2'%3E%3C/polygon%3E%3C/svg%3E");
 }
 
 /* updated */
@@ -86,7 +100,8 @@
 }
 
 .dataview.inline-field-key[data-dv-key='updated']::before {
-    content: "🔄";
+    /* content: "🔄"; */
+    mask-image: url("data:image/svg+xml,%3Csvg fill='%23000000' viewBox='0 0 24 24' id='update-alt' data-name='Flat Line' xmlns='http://www.w3.org/2000/svg' class='icon flat-line'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath id='primary' d='M5.07 8A8 8 0 0 1 20 12' style='fill: none%3B stroke: %23000000%3B stroke-linecap: round%3B stroke-linejoin: round%3B stroke-width: 2%3B'%3E%3C/path%3E%3Cpath id='primary-2' data-name='primary' d='M18.93 16A8 8 0 0 1 4 12' style='fill: none%3B stroke: %23000000%3B stroke-linecap: round%3B stroke-linejoin: round%3B stroke-width: 2%3B'%3E%3C/path%3E%3Cpolyline id='primary-3' data-name='primary' points='5 3 5 8 10 8' style='fill: none%3B stroke: %23000000%3B stroke-linecap: round%3B stroke-linejoin: round%3B stroke-width: 2%3B'%3E%3C/polyline%3E%3Cpolyline id='primary-4' data-name='primary' points='19 21 19 16 14 16' style='fill: none%3B stroke: %23000000%3B stroke-linecap: round%3B stroke-linejoin: round%3B stroke-width: 2%3B'%3E%3C/polyline%3E%3C/g%3E%3C/svg%3E");
 }
 
 /* file */
@@ -95,7 +110,8 @@
 }
 
 .dataview.inline-field-key[data-dv-key~='file']::before {
-    content: "📄";
+    /* content: "📄"; */
+    mask-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="1em" height="1em" viewBox="0 0 16 16"%3E%3Cpath fill="currentColor" d="M8 4.5V1H4.5A1.5 1.5 0 0 0 3 2.5v11A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5V6H9.5A1.5 1.5 0 0 1 8 4.5Zm1 0V1.25L12.75 5H9.5a.5.5 0 0 1-.5-.5ZM5.5 8h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1ZM5 10.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5Zm.5 1.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1Z"%2F%3E%3C%2Fsvg%3E')
 }
 
 /* schedued */
@@ -104,7 +120,8 @@
 }
 
 .dataview.inline-field-key[data-dv-key='scheduled']::before {
-    content: "📅";
+    /* content: "📅"; */
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath d='M10 21H6.2C5.0799 21 4.51984 21 4.09202 20.782C3.71569 20.5903 3.40973 20.2843 3.21799 19.908C3 19.4802 3 18.9201 3 17.8V8.2C3 7.0799 3 6.51984 3.21799 6.09202C3.40973 5.71569 3.71569 5.40973 4.09202 5.21799C4.51984 5 5.0799 5 6.2 5H17.8C18.9201 5 19.4802 5 19.908 5.21799C20.2843 5.40973 20.5903 5.71569 20.782 6.09202C21 6.51984 21 7.0799 21 8.2V10M7 3V5M17 3V5M3 9H21M13.5 13.0001L7 13M10 17.0001L7 17M14 21L16.025 20.595C16.2015 20.5597 16.2898 20.542 16.3721 20.5097C16.4452 20.4811 16.5147 20.4439 16.579 20.399C16.6516 20.3484 16.7152 20.2848 16.8426 20.1574L21 16C21.5523 15.4477 21.5523 14.5523 21 14C20.4477 13.4477 19.5523 13.4477 19 14L14.8426 18.1574C14.7152 18.2848 14.6516 18.3484 14.601 18.421C14.5561 18.4853 14.5189 18.5548 14.4903 18.6279C14.458 18.7102 14.4403 18.7985 14.405 18.975L14 21Z' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
 }
 
 /* dataview inline field value */
