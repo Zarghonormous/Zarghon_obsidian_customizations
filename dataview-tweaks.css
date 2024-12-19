@@ -13,6 +13,7 @@
     margin: 0 2px;
     --dataview-border-radius: 6px;
     border-radius: var(--dataview-border-radius);
+    white-space: nowrap;
 }
 
 /* dataview inline field key */
@@ -37,7 +38,7 @@
     display: inline-block;
     width: 18px;
     height: 18px;
-    vertical-align: -2.5px;
+    vertical-align: -3px;
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-size: 100%;
