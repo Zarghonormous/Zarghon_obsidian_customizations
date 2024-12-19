@@ -35,7 +35,7 @@ body {
 
 /* if using custom icons */
 /* otherwise, comment this section */
-.collapse-icon svg.svg-icon {
+.nav-files-container .collapse-icon svg.svg-icon {
     display: none;
 }
 
